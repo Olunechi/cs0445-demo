@@ -104,7 +104,11 @@ public class KMP {
 				i++;
 			else {
 				int of_prev = ot[j - 1];
-				if (of_prev == 0) // we did not match any character - restart pattern					
+				if (ot[j]>ot[j-1]){
+					i++;
+					j=0;
+				}
+				else if(of_prev == 0) // we did not match any character - restart pattern					
 					j = 0;
 				else
 					j = of_prev;  // skip characters in P according to the OF
